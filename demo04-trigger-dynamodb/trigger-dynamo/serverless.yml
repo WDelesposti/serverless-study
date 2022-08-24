@@ -1,0 +1,18 @@
+org: wdelesposti
+app: trigger-dynamo
+service: trigger-dynamo
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+
+functions:
+  hero-insert:
+    handler: handler.heroesInsert
+    events:
+      - http:
+          path: heroes
+          method: post
+          cors: true
